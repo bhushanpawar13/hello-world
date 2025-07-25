@@ -2,3 +2,36 @@ HSared ULR's
 
 https://vodafone-de.atlassian.net/jira/software/c/projects/TESHAR/boards/361?isEligibleForUserSurvey=true
 https://vodafone-de.atlassian.net/jira/software/c/projects/TEORQA/boards/360
+
+NAVI JupiterServiceHardware Details getOrdersDetailsByAccountNumber
+SELECT * 
+FROM lpd_delivery_order 
+WHERE status = 'CONFIRMED' 
+AND requested_delivery_date IS NULL 
+ORDER BY creation_timestamp desc; 
+Choose one of rows to use for the next steps.
+
+Take the customer number from the previous step to use in this query. 
+DB: 
+Logistic Runtime DB 
+Query: 
+SELECT * 
+FROM lpd_delivery_order 
+WHERE account_number = 932234308; 
+Replace the ? in accountNumber with the account number from step 1.
+
+
+Enter the following. 
+Project Name: NAVI test1b 
+WSDL: http://jupiter-test1b.kabeldeutschland.de/LogisticsDomainInfoService/CrmcLogisticsDomainInfoService?wsdl 
+
+
+In SoapUI 
+Expand the entry for 
+getOrdersDetailsByAccountNumber() 
+and open the example request, probably named Request1 
+Replace the ? in accountNumber with the account number from steps 1 and 2.
+
+
+
+
